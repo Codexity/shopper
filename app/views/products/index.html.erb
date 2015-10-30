@@ -366,7 +366,7 @@
   										</div>
   										<div class="product-overlay">
   											<div class="overlay-content">
-  												<h2><%= product.price %></h2>
+  												<h2>$<%= product.price %></h2>
   												<p><%= product.name %></p>
   												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
   											</div>
@@ -422,15 +422,34 @@
 
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
+                <% @products_only.in_groups_of(3).each_with_index do |product,index| %>
+                <% if index == 0 %>
 								<div class="item active">
-                  <% @products_only.first(3).each do |product| %>
+                  <% product.each do |p| %>
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<%= image_tag(product.default_image.path, height: '100') %>
-													<h2>$<%= product.price %></h2>
-													<p><%= product.name %></p>
+													<%= image_tag p.default_image.path, width: '4' %>
+													<h2>$<%= p.price %></h2>
+													<p><%= p.name %></p>
+													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+                  <%end%>
+								</div>
+                <% else %>
+								<div class="item">
+                  <% product.each do |p| %>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<%= image_tag p.default_image.path, height: '80' %>
+													<h2>$<%= p.price %></h2>
+													<p><%= p.name %></p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 											</div>
@@ -438,47 +457,8 @@
 									</div>
                   <% end %>
 								</div>
-								<div class="item">
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend2.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend3.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
+                <%end%>
+                <%end%>
 							</div>
 							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
 								<i class="fa fa-angle-left"></i>
