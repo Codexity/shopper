@@ -12,5 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require main
+ *= require animate
+ *= require bootstrap.min
+ *= require font-awesome.min
+ *= require prettyPhoto
+ *= require price-range
+ *= require responsive
+
  */
