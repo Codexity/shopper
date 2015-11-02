@@ -14,4 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require_tree ../../../vendor/assets/javascripts/.
+//= require bootstrap.min
+//= require gmaps
+//= require html5shiv
+//= require main
+//= require price-range
+//= require jquery.prettyPhoto
+//= require jquery.scrollUp.min
